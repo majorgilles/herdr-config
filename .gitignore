@@ -1,0 +1,10 @@
+# Track only hand-edited config. Everything else is runtime state herdr manages.
+*
+!.gitignore
+!config.toml
+!plugins.json
+!plugins/
+plugins/*
+!plugins/config/
+!plugins/config/**/
+!plugins/config/**/config.yml

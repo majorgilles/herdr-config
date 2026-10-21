@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/razajamil/herdr-plugin-workspace-manager/main/schema.json
+layouts:
+  - id: web-app
+    setup:
+      command: make setup   # optional one-off, run before the rest of the layout
+      blocking: true         # if true, no other panes spawn until it finishes
+    tabs:
+      - title: code
+        panes:
+          - title: agent
+            command: claude    # optional command to run in the pane
+            setup: true        # runs setup.command first, then `claude`
+          - title: diff
+            command: hunk diff
+            split: vertical    # placed beside the agent pane
+          - title: editor
+            command: nvim .
+            split: horizontal  # stacked below the diff pane
+      - title: nvim
+        panes:
+          - title: editor
+            command: nvim .
+      - title: git
+        panes:
+          - title: lazygit
+            command: lazygit
+
+workspaces:
+  - repo: ~/dev/lizy-backend       # any linked worktree of this repo gets the layout
+    defaultLayout: web-app
