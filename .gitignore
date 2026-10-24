@@ -2,7 +2,6 @@
 *
 !.gitignore
 !config.toml
-!plugins.json
 !plugins/
 plugins/*
 !plugins/config/
